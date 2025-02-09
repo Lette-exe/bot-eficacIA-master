@@ -2,6 +2,8 @@ import 'dotenv/config'
 import { createBot, MemoryDB, createProvider } from '@bot-whatsapp/bot'
 import { TelegramProvider } from '@builderbot-plugins/telegram'
 import { BaileysProvider } from '@bot-whatsapp/provider-baileys'
+import QRPortalWeb from "@bot-whatsapp/portal";
+
 
 import AIClass from './services/ai';
 import flows from './flows';
@@ -19,6 +21,8 @@ const main = async () => {
         flow: flows
     }, { extensions: { ai } })
 
+    const BOTNAME = 'bot'
+    QRPortalWeb({ name: BOTNAME, port: 3005 })
 }
 
 main()
